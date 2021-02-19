@@ -22,13 +22,13 @@ def inception_score(imgs, cuda=True, batch_size=32, resize=False, splits=1):
     assert batch_size > 0
     assert N > batch_size
 
-    # # Set up dtype
-    # if cuda:
-    #     dtype = torch.cuda.FloatTensor
-    # else:
-    #     if torch.cuda.is_available():
-    #         print("WARNING: You have a CUDA device, so you should probably set cuda=True")
-    #     dtype = torch.FloatTensor
+    # Set up dtype
+    if cuda:
+        dtype = torch.cuda.FloatTensor
+    else:
+        if torch.cuda.is_available():
+            print("WARNING: You have a CUDA device, so you should probably set cuda=True")
+        dtype = torch.FloatTensor
 
     # Set up dataloader
     dataloader = torch.utils.data.DataLoader(imgs, batch_size=batch_size)
