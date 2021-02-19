@@ -22,6 +22,8 @@ transform = transforms.Compose([transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5,
 
 dataset = datasets.ImageFolder(args.path, transform=transform)
 
+import ipdb; ipdb.set_trace()
+
 inception_score(dataset, cuda=True, batch_size=32, resize=False, splits=1)
 
 """Computes the inception score of the generated images imgs
