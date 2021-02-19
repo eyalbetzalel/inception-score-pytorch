@@ -24,7 +24,12 @@ transform = transforms.Compose([transforms.ToTensor(),
 
 dataset = datasets.ImageFolder(args.path, transform=transform)
 
-inception_score(dataset, cuda=True, batch_size=32, resize=True, splits=1)
+mean_split_scores, std_split_scores = inception_score(dataset, cuda=True, batch_size=32, resize=True, splits=1)
+
+print("Calculating Inception Score...")
+print(mean_split_scores)
+print(std_split_scores)
+
 
 """Computes the inception score of the generated images imgs
 

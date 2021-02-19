@@ -46,8 +46,6 @@ def inception_score(imgs, cuda=True, batch_size=32, resize=False, splits=1):
     # Get predictions
     preds = np.zeros((N, 1000))
 
-    import ipdb; ipdb.set_trace()
-
     for i, batch in enumerate(dataloader, 0):
         batch = batch[0]
         batch = batch.type(dtype)
@@ -55,6 +53,9 @@ def inception_score(imgs, cuda=True, batch_size=32, resize=False, splits=1):
         batch_size_i = batch.size()[0]
 
         preds[i*batch_size:i*batch_size + batch_size_i] = get_pred(batchv)
+
+        if i == 20:
+            break
 
     # Now compute the mean kl-div
     split_scores = []
