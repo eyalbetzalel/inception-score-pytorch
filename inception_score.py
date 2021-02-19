@@ -22,13 +22,13 @@ def inception_score(imgs, cuda=True, batch_size=32, resize=False, splits=1):
     assert batch_size > 0
     assert N > batch_size
 
-    # Set up dtype
-    if cuda:
-        dtype = torch.cuda.FloatTensor
-    else:
-        if torch.cuda.is_available():
-            print("WARNING: You have a CUDA device, so you should probably set cuda=True")
-        dtype = torch.FloatTensor
+    # # Set up dtype
+    # if cuda:
+    #     dtype = torch.cuda.FloatTensor
+    # else:
+    #     if torch.cuda.is_available():
+    #         print("WARNING: You have a CUDA device, so you should probably set cuda=True")
+    #     dtype = torch.FloatTensor
 
     # Set up dataloader
     dataloader = torch.utils.data.DataLoader(imgs, batch_size=batch_size)
@@ -46,10 +46,8 @@ def inception_score(imgs, cuda=True, batch_size=32, resize=False, splits=1):
     # Get predictions
     preds = np.zeros((N, 1000))
 
-    import ipdb; ipdb.set_trace()
-
     for i, batch in enumerate(dataloader, 0):
-        batch = batch.type(dtype)
+        batch = batch.cuda()
         batchv = Variable(batch)
         batch_size_i = batch.size()[0]
 
