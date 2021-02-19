@@ -61,6 +61,7 @@ def inception_score(imgs, cuda=True, batch_size=32, resize=False, splits=1):
     split_scores = []
 
     for k in range(splits):
+        import ipdb; ipdb.set_trace()
         part = preds[k * (N // splits): (k+1) * (N // splits), :]
         py = np.mean(part, axis=0)
         scores = []
