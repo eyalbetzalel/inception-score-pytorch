@@ -12,7 +12,7 @@ parser.add_argument(
     "--path",
     type=str,
     help="Path to ImageGPT results",
-    default=r"/home/dsi/eyalbetzalel/pytorch-generative-v6/tmp/run/ep_0_ch_128_psb_2_resb_4_atval_64_attk_8/ep_0_ch_128_psb_2_resb_4_atval_64_attk_8_epoch_0/",
+    default=r"/home/dsi/eyalbetzalel/pytorch-generative-v6/tmp/run/ep_0_ch_128_psb_2_resb_4_atval_64_attk_8/",
 )
 
 args = parser.parse_args()
