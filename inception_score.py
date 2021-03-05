@@ -48,7 +48,6 @@ def inception_score(imgs, cuda=True, batch_size=32, resize=False, splits=1):
 
     for i, batch in enumerate(dataloader, 0):
         batch = batch[0]
-        import ipdb; ipdb.set_trace()
         batch = batch.type(dtype)
         batchv = Variable(batch)
         batch_size_i = batch.size()[0]
